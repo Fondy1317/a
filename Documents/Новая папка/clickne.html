@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кликне</title>
+    <style>
+        /* Основные стили */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #6F4E37; /* Мягкий коричневый цвет RAL 8028 */
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #text {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: white;
+            color: #6F4E37;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="text">кликне.</div>
+        <button id="button">Кликни</button>
+    </div>
+
+    <script>
+        // Логика работы сайта
+        let clickCount = 0;
+        const textElement = document.getElementById("text");
+        const buttonElement = document.getElementById("button");
+
+        buttonElement.addEventListener("click", () => {
+            clickCount++;
+
+            if (clickCount === 1) {
+                textElement.textContent = "кликне еще 8 раз.";
+            } else if (clickCount === 9) {
+                textElement.textContent = "ну ладно кликне последний раз пжлст.";
+            } else if (clickCount === 10) {
+                textElement.textContent = "спасиба. ответ невдупленышу - миндалька.";
+                buttonElement.style.display = "none"; // Скрываем кнопку после последнего клика
+            }
+        });
+    </script>
+</body>
+</html>
